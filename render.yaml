@@ -1,0 +1,9 @@
+﻿services:
+  - type: web
+    name: java-prtc25
+    env: java
+    buildCommand: ./mvnw -DskipTests package
+    startCommand: java -jar target/java_prtc25-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: MONGODB_URI
+        sync: false

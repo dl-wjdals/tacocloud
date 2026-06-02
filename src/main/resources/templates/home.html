@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Taco Cloud</title>
+</head>
+
+<body>
+
+<h1>Welcome to...</h1>
+<h4>2026810099 이정민</h4>
+
+<img th:src="@{/images/TacoCloud.png}"/>
+
+<div th:if="${#request.remoteUser != null}">
+    <form method="post" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+
+    <p>
+        <a th:href="@{/design}">Design a taco</a>
+    </p>
+</div>
+
+<div th:unless="${#request.remoteUser != null}">
+    <p>
+        <a th:href="@{/login}">Login</a>
+    </p>
+    <p>
+        <a th:href="@{/register}">Register</a>
+    </p>
+</div>
+
+</body>
+</html>

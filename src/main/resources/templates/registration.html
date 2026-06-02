@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Register</h1>
+<h4>2026810099 이정민</h4>
+
+<img th:src="@{/images/TacoCloud.png}"/>
+
+<div th:if="${registrationErrorMessage}" th:text="${registrationErrorMessage}"
+     style="color: #b22222; margin-bottom: 12px;">
+    Registration error
+</div>
+
+<form method="post" th:action="@{/register}" th:object="${registrationForm}">
+    <label>Username: </label>
+    <input type="text" th:field="*{username}"/>
+    <br/>
+
+    <label>Password: </label>
+    <input type="password" th:field="*{password}"/>
+    <br/>
+
+    <label>Confirm password: </label>
+    <input type="password" th:field="*{confirmPassword}"/>
+    <br/>
+
+    <label>Full name: </label>
+    <input type="text" th:field="*{fullname}"/>
+    <br/>
+
+    <label>Street: </label>
+    <input type="text" th:field="*{street}"/>
+    <br/>
+
+    <label>City: </label>
+    <input type="text" th:field="*{city}"/>
+    <br/>
+
+    <label>State: </label>
+    <input type="text" th:field="*{state}"/>
+    <br/>
+
+    <label>Zip: </label>
+    <input type="text" th:field="*{zip}"/>
+    <br/>
+
+    <label>Phone: </label>
+    <input type="text" th:field="*{phone}"/>
+    <br/>
+
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>
